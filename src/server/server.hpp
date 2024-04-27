@@ -1,23 +1,26 @@
 #pragma once
 
-#include <sys/socket.h>
-#include <netinet/ip.h>
-
+#include <string>
 #include <map>
+
+typedef struct UserData {
+    std::string ip;
+    std::string status;
+};
 
 class Server
 {
 private:
-    //Server props
-    sockaddr_in address;
-    socklen_t size;
-
-    //Server data
+    int server_socket;
     
+    std::map<std::string, UserData> user_list;
+    std::map<std::string, std::string> chats;
 
 public:
-    Server(int port);
-    // ~Server();
-    int run(int connections, int threads);
+    Server();
+    ~Server();
+    
+    int init(int port, int connections, int threads);
+    int handle_user(/*Params*/);
 };
 
