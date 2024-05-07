@@ -20,7 +20,15 @@ public:
     Server();
     ~Server();
     
-    int init(int port, int connections, int threads);
+    /*
+    Asocia una direccion IP y puerto disponibles al socket del servidor. Ademas
+    determina la cantidad de conecciones que se pueden realizar.
+    */
+    int init(int port, int connections);
+
+    /*
+    Maneja los Request de un usuario en particular
+    */
     int handle_user(/*Params*/);
 };
 

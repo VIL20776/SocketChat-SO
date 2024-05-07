@@ -16,7 +16,7 @@ int main(int argc, char const *argv[])
 
     Server server;
 
-    if (server.init(std::stoi(port), CONNECTIONS, THREADS) < 0) {
+    if (server.init(std::stoi(port), CONNECTIONS) < 0) {
         std::cerr << "Fallo al iniciar el servidor.\n";
         return 1;
     }

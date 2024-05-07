@@ -19,7 +19,7 @@ Server::~Server()
         throw std::runtime_error("No se pudo cerrar el socket");
 }
 
-int Server::init(int port, int connections, int threads) {
+int Server::init(int port, int connections) {
 
     sockaddr_in address;
     address.sin_family = AF_INET;
@@ -40,3 +40,4 @@ int Server::init(int port, int connections, int threads) {
 
     return 0;
 }
+

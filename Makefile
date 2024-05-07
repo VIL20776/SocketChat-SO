@@ -39,7 +39,7 @@ $(THREAD_OBJ): $(THREAD_SOURCES)
 	$(CXX) $(CXXFLAGS) -c -o $@ $^
 
 # Compilar el protocolo
-$(PROTOCOL_OBJ): $(PROTOCOL_SOURCES)
+$(PROTO_OBJ): $(PROTOCOL_SOURCES)
 	$(CXX) $(CXXFLAGS) -lprotobuf -c -o $@ $^
 
 # Limpiar los archivos generados
@@ -50,6 +50,8 @@ clean:
 build:
 	mkdir -p build
 
-# Reglas adicionales
+# Asegurar que el directorio build sea creado
 $(CLIENT_EXEC): | build
 $(SERVER_EXEC): | build
+$(THREAD_OBJ): 	| build
+$(PROTOC_OBJ): 	| build
