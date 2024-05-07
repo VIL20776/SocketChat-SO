@@ -27,11 +27,11 @@ client: $(CLIENT_EXEC)
 server: $(SERVER_EXEC)
 
 # Compilar el cliente
-$(CLIENT_EXEC): $(CLIENT_SOURCES) $(THREAD_OBJ) $(PROTOCOL_OBJ)
+$(CLIENT_EXEC): $(CLIENT_SOURCES) $(THREAD_OBJ) $(PROTO_OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 # Compilar el servidor
-$(SERVER_EXEC): $(SERVER_SOURCES) $(THREAD_OBJ) $(PROTOCOL_OBJ)
+$(SERVER_EXEC): $(SERVER_SOURCES) $(THREAD_OBJ) $(PROTO_OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 # Compilar el pool de threads
