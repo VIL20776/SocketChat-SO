@@ -2,6 +2,7 @@
 
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <arpa/inet.h>
 #include <unistd.h>
 
 #include <stdexcept>
@@ -24,7 +25,7 @@ int Server::init(int port, int connections) {
     sockaddr_in address;
     address.sin_family = AF_INET;
     address.sin_port = htons(port);
-    address.sin_addr.s_addr = INADDR_ANY;
+    address.sin_addr.s_addr = inet_addr("127.0.0.1");
 
     socklen_t size = sizeof(address); 
 
@@ -40,4 +41,14 @@ int Server::init(int port, int connections) {
 
     return 0;
 }
+
+int Server::accept_connections() {
+
+}
+
+int Server::handle_connections(std::vector<int> &conn_sockets)
+{
+    
+}
+
 

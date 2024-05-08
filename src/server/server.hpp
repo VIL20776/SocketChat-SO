@@ -1,5 +1,6 @@
 #pragma once
 
+#include <vector>
 #include <string>
 #include <map>
 
@@ -12,6 +13,7 @@ class Server
 {
 private:
     int server_socket;
+    std::vector<int> client_sockets;
     
     std::map<std::string, UserData> user_list;
     std::map<std::string, std::string> chats;
@@ -27,8 +29,15 @@ public:
     int init(int port, int connections);
 
     /*
-    Maneja los Request de un usuario en particular
+    Esta pendiente de las nuevas conexiones y agrega los sockets al vector @client_sockets
     */
-    int handle_user(/*Params*/);
+    int accept_connections();
+
+    /*
+    Escucha los sockets de las conexiones habilitadas en @conn_sockets e internamente
+    maneja los mensajes entrantes y salientes.
+    */
+    int handle_connections(std::vector<int> &conn_sockets);
+
 };
 

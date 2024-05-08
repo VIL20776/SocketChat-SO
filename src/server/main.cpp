@@ -25,6 +25,9 @@ int main(int argc, char const *argv[])
     while (running)
     {
         /* Manejo de threads de usuarios con mutithreading */
+        std::vector<int> active_connections = {};
+        server.accept_connections();
+        server.handle_connections(active_connections);
     }
     
 
